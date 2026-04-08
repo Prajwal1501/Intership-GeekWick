@@ -1,0 +1,101 @@
+
+use internhub
+
+db.students.insertMany([
+  { name: "Prajwal", age: 21, course: "CSE" },
+  { name: "Anjali", age: 22, course: "ECE" }
+])
+
+db.students.find()
+
+
+db.employees.insertMany([
+  { name: "Ravi", role: "Manager", salary: 50000 },
+  { name: "Sneha", role: "Developer", salary: 40000 },
+  { name: "Arjun", role: "Tester", salary: 35000 }
+])
+
+
+db.employees.insertOne({
+  name: "Kiran",
+  role: "Designer",
+  salary: 30000,
+  email: "kiran@gmail.com",
+  phone: "9876543210"
+})
+
+db.employees.insertOne({
+  name: "Meena",
+  role: "Support",
+  salary: 28000
+})
+
+
+db.departments.insertMany([
+  { deptName: "HR", location: "Bangalore" },
+  { deptName: "IT", location: "Mysore" },
+  { deptName: "Finance", location: "Delhi" }
+])
+
+
+db.products.insertMany([
+  { name: "Laptop", price: 60000, category: "Electronics", stock: 10 },
+  { name: "Phone", price: 20000, category: "Electronics", stock: 25 },
+  { name: "Chair", price: 3000, category: "Furniture", stock: 15 }
+])
+
+
+db.students.find()
+db.employees.find()
+db.departments.find()
+db.products.find()
+
+
+db.interns.insertMany([
+  { name: "A", age: 21 },
+  { name: "B", skills: ["Java", "Python"] },
+  { name: "C", college: "ATME", duration: 3 },
+  { name: "D", stipend: 5000 },
+  { name: "E", project: "E-commerce", completed: true }
+])
+
+
+db.interns.updateOne(
+  { name: "A" },
+  {
+    $set: {
+      address: {
+        city: "Mysore",
+        state: "Karnataka",
+        pincode: 570001
+      }
+    }
+  }
+)
+
+db.interns.updateOne(
+  { name: "D" },
+  { $set: { skills: ["HTML", "CSS"] } }
+)
+
+db.interns.updateOne(
+  { name: "E" },
+  { $set: { skills: ["Node.js", "MongoDB"] } }
+)
+
+db.interns.find()
+
+MySQL Comparison (Students)
+
+CREATE TABLE students (
+  name VARCHAR(50),
+  age INT,
+  course VARCHAR(50)
+);
+
+Observations:[ Why mongoDB is called a schema Flexible database.
+MongoDB does not require fixed schema
+Documents can have different fields
+Easy to modify structure anytime
+Supports nested objects (address)
+Supports arrays (skills)
